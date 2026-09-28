@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/style.css">
+    <link rel="stylesheet" href="static/popup.css"> 
+    <script src="script/app.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <header class="main-header">
+                <nav class="navbar">
+                    <ul class="nav-container">
+                        <li><a class="nav-item" href="home.html">About</a></li>
+                        <li><a class="nav-item" href="app.html">Features</a></li>
+                    </ul>
+                </nav>
+        </header>
+    </div>
+    <div class="card-container" id="card-container-3">
+        <dialog class="modal-container" id="modal-container">
+            <div class="modal">
+                <button class="escape" id="exit-1">X</button> <!-- This is for closing out of the window-->
+                <input type="text" placeholder="Enter title" class="title" id="title-1"> <!-- This will be for the title of whatever task is needed to be done-->
+                <label for="priority-select">Choose priority:</label>
+                <select id="priority-select">
+                    <option value="" disabled selected>Select an option...</option>
+                    <option value="high">High Priority</option>
+                    <option value="medium">Medium Priority</option>
+                    <option value="low">Low Priority</option>
+                </select>
+                <input type="text" placeholder="Enter description" class="description" id="description-1"> <!-- This will be needed for the text-->
+                <button class="submit" id="submit-1">Submit</button> <!-- This will be used for the submit button-->
+            </div>
+        </dialog>
+        <button class="add-new" id="add-new">
+            + ADD
+        </button>
+       
+
+        
+    </div>
+</body>
+</html>

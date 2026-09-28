@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overscroll-behavior: none; 
+}
+.container{
+    display:flex;
+}
+.main-header{
+    position: sticky;
+
+    background-color: #541414;
+
+    top: 0px;
+
+    z-index: 9999;
+
+    height: 50px;
+
+    border: 1px solid #F36363;
+    width: 100%;
+
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 1200px;
+
+}
+.nav-container{
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    padding-left: 0px;
+    padding-top: 8px;
+}
+.nav-item{
+    color: #D0D0C8;
+    font-weight: bold;
+    font-size: 30px;
+    cursor:pointer;
+    text-decoration: none;
+}
+.nav-item:hover{
+    color:#8c8c8a
+}
+.about{
+    position: absolute;
+    background-color:  #EF8182;
+
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.about h1{
+    color: #717170;
+    font-weight: bold;
+    font-size: 40px;
+}
+.about p{
+    color: #D0D0C8;
+    font-size: 20px;
+    text-align: center;
+}
+.card-container{
+    display: flex;
+    position: absolute;
+
+    background-color:#F36363;
+
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    padding-left: 180px;
+    padding-top: 60px;
+    gap: 20px;
+
+}
+.add-new{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #6ef95b;
+
+    height: 5%;
+    width: 10%;
+
+    border: 1px white solid;
+    border-radius: 16px;
+
+    top: 10px;
+    left: 10px;
+    
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+
+    cursor: pointer;
+}
+.add-new:hover{
+    background-color: #449739;
+}
+.card{
+    background-color: #541414;
+    color: white;
+    border: 2px solid black;
+    border-radius: 8px;
+
+    height: 180px;
+    width: 200px;
+    
+    
+}
+.card h1{
+    position: relative;
+    left: 10px;
+    top: 12px;
+
+    font-size: 20px;
+    font-weight: bold;
+}
+.card h2{
+    position: relative;
+    left: 10px;
+    top: 20px;
+    font-size: 12px;
+}
+.card p{
+    position: relative;
+    text-align: center;
+    top: 30px;
+    font-size: 8px;
+    width: 100%;
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-break: break-word;
+    overflow: hidden;
+}

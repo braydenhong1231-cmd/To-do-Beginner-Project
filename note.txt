@@ -1,0 +1,8 @@
+Color palette is going to be Cherry Onyx Sundown
+
+First color: #541414
+Second color: #F36363
+Third color: #EF8182
+Fourth color: #D0D0C8
+
+First color will be used for the nav bar and any part of the website touching the borders
