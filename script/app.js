@@ -19,10 +19,11 @@ escapeWindow.onclick = function(){
 /* This function only applies if it is a element that doesn't need a class to be created*/
 function addElement(container, tag, text){
     const child = document.createElement(tag)
+    text = text.charAt(0).toUpperCase() + text.slice(1)
     child.textContent = text
     container.appendChild(child)
 }
-
+//Creates cards
 function createCard(title, priority, desc, container){
     const card = document.createElement('div')
     card.classList.add('card')
@@ -32,5 +33,9 @@ function createCard(title, priority, desc, container){
     container.appendChild(card)
 }
 cardSubmit.addEventListener('click', () => {
-    
+    let titleValue = cardTitle.value
+    let priorityValue = cardPriority.value
+    let descValue = cardDesc.value
+    createCard(titleValue, priorityValue, descValue, cardContaienr)
+    cardWindow.close()
 })
