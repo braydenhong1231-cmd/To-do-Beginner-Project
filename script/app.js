@@ -1,5 +1,5 @@
 const addCard = document.getElementById('add-new')
-const cardContaienr = document.getElementById('card-container-3')
+const cardContainer = document.getElementById('card-container-3')
 
 /* This is the window elements */
 const cardWindow = document.getElementById('modal-container')
@@ -36,6 +36,46 @@ cardSubmit.addEventListener('click', () => {
     let titleValue = cardTitle.value
     let priorityValue = cardPriority.value
     let descValue = cardDesc.value
-    createCard(titleValue, priorityValue, descValue, cardContaienr)
+    createCard(titleValue, priorityValue, descValue, cardContainer)
     cardWindow.close()
+    cardTitle.value = ""
+    cardPriority.value = ""
+    cardDesc.value = ""
+})
+
+
+const deletebutton = document.createElement('button')
+deletebutton.classList.add('delete')
+
+cardContainer.addEventListener('mouseover', (current) => {
+    const card = current.target.closest('.card')
+    if (card && !cardContainer.contains(current.relatedTarget && current.relatedTarget.closest('.card'))) {
+        card.appendChild(deletebutton)
+        deletebutton.style.visibility = 'visible'
+    }
+})
+
+cardContainer.addEventListener('mouseout', (current) => {
+    const card = current.target.closest('.card')
+    if (card && !cardContainer.contains(current.relatedTarget && current.relatedTarget.closest('.card'))) {
+        deletebutton.style.visibility = 'hidden'
+    }
+})
+
+const editbutton = document.createElement('button')
+editbutton.classList.add('edit')
+
+cardContainer.addEventListener('mouseover', (current) => {
+    const card = current.target.closest('.card')
+    if (card && !cardContainer.contains(current.relatedTarget && current.relatedTarget.closest('.card'))) {
+        card.appendChild(editbutton)
+        editbutton.style.visibility = 'visible'
+    }
+})
+
+cardContainer.addEventListener('mouseout', (current) => {
+    const card = current.target.closest('.card')
+    if (card && !cardContainer.contains(current.relatedTarget && current.relatedTarget.closest('.card'))) {
+        editbutton.style.visibility = 'hidden'
+    }
 })
