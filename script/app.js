@@ -8,12 +8,19 @@ const cardTitle = document.getElementById('title-1')
 const cardPriority = document.getElementById('priority-select')
 const cardDesc = document.getElementById('description-1')
 const cardSubmit = document.getElementById('submit-1')
+let edit = false
 
 addCard.onclick = function (){
     cardWindow.showModal()
+    cardTitle.value = ""
+    cardPriority.value = ""
+    cardDesc.value = ""
 }
 escapeWindow.onclick = function(){
     cardWindow.close()
+    cardTitle.value = ""
+    cardPriority.value = ""
+    cardDesc.value = ""
 }
 
 /* This function only applies if it is a element that doesn't need a class to be created*/
@@ -32,15 +39,24 @@ function createCard(title, priority, desc, container){
     addElement(card, "p", desc)
     container.appendChild(card)
 }
+function editCard(parent, title, priority, desc){
+    const titleValue = parent.querySelector("h1")
+    const priorityValue = parent.querySelector('h2')
+    const descValue = parent.querySelector("p")
+    titleValue.textContent = title.value
+    priorityValue.textContent = priority.value
+    descValue.textContent = desc.value
+    console.log("hello")
+}
 cardSubmit.addEventListener('click', () => {
-    let titleValue = cardTitle.value
-    let priorityValue = cardPriority.value
-    let descValue = cardDesc.value
-    createCard(titleValue, priorityValue, descValue, cardContainer)
+    if(!edit){
+        let titleValue = cardTitle.value
+        let priorityValue = cardPriority.value
+        let descValue = cardDesc.value
+        createCard(titleValue, priorityValue, descValue, cardContainer)
+        cardWindow.close()
+    }
     cardWindow.close()
-    cardTitle.value = ""
-    cardPriority.value = ""
-    cardDesc.value = ""
 })
 
 
@@ -50,8 +66,13 @@ deletebutton.classList.add('delete')
 cardContainer.addEventListener('mouseover', (current) => {
     const card = current.target.closest('.card')
     if (card && !cardContainer.contains(current.relatedTarget && current.relatedTarget.closest('.card'))) {
-        card.appendChild(deletebutton)
+        if(!card.contains(deletebutton)){
+            card.appendChild(deletebutton)
+        }
         deletebutton.style.visibility = 'visible'
+        deletebutton.addEventListener('click', () =>{
+            card.remove()
+        })
     }
 })
 
@@ -68,8 +89,29 @@ editbutton.classList.add('edit')
 cardContainer.addEventListener('mouseover', (current) => {
     const card = current.target.closest('.card')
     if (card && !cardContainer.contains(current.relatedTarget && current.relatedTarget.closest('.card'))) {
-        card.appendChild(editbutton)
+        if(!card.contains(editbutton)){
+            card.appendChild(editbutton)
+        }
         editbutton.style.visibility = 'visible'
+        editbutton.addEventListener('click', () => {
+            const title = card.querySelector('h1')
+            const priority = card.querySelector('h2')
+            const description = card.querySelector('p')
+
+            cardWindow.showModal()
+            cardTitle.value = title.textContent
+            cardDesc.value = description.textContent
+            cardPriority.value = priority.textContent
+            edit = true
+            
+            if(edit){
+                cardSubmit.addEventListener('click', () => {
+                    editCard(card,cardTitle,cardPriority,cardDesc)
+                    edit = false
+                })
+            }
+
+        })
     }
 })
 
